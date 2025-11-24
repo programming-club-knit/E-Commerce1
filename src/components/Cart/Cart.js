@@ -45,7 +45,9 @@ function Cart({
       <div className="cart-container">
         <p className="cart-heading">Cart</p>
         {
-          // implement a the cart logic here 
+          cartItems.map((item)=>{ 
+            return <CartItem id={item.id} name={item.name} image={item.image} quantity={item.quantity} onIncQuantity={onIncQuantity} onDecQuantity={onDecQuantity}/>
+        })
         }
         <div className="cart-buttons">
           <button className="black-button close-cart" onClick={closeCart}>
