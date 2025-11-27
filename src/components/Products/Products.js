@@ -4,7 +4,7 @@ import "./Products.css";
 export function Product({ id, name, image, onAddToCart }) {
   return (
     <div key={id} className="product">
-      <img src={require(`../../assets/${image}`)} alt={name} />
+      <img src={image} alt={name} />
       <div className="product-name">{name}</div>
       <button onClick={() => onAddToCart(id, name, image)}>Add to cart</button>
     </div>
@@ -18,7 +18,7 @@ function Products({ products, onAddToCart }) {
         <Product
           key={product.id}
           id={product.id}
-          name={product.name}
+          name={product.title}
           image={product.image}
           onAddToCart={onAddToCart}
         />
