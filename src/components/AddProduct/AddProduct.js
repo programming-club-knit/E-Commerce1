@@ -9,7 +9,9 @@ import "./AddProduct.css";
 function AddProduct({ showAddProduct, closeAddProduct, onAddProduct }) {
   
   return <div>
-    {/* Complete the component */}
+    {showAddProduct},
+    {onAddProduct},
+    {closeAddProduct}
   </div>
 
 }

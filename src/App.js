@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import productData from "./data/products.json";
 
 import Header from "./components/Header/Header";
@@ -10,6 +10,12 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState(productData);
 
+  useEffect(()=>{
+    fetch('https://fakestoreapi.com/products/')
+            .then(res=>res.json())            
+            .then(json=>setProducts(json))
+  },[])
+  console.log(cartItems)
   const [showCart, setShowCart] = useState(false);
   const [showAddProduct, setShowAddProduct] = useState(false);
 
@@ -26,7 +32,7 @@ function App() {
     if (productInCartIndex === -1) {
       setCartItems((prev) => [
         ...prev,
-        { id: productId, name: productName, image: productImg, quantity: 1 },
+        { id: productId, title: productName, image: productImg, quantity: 1 },
       ]);
     } else {
       const newCartItems = [...cartItems];
@@ -56,7 +62,6 @@ function App() {
   };
 
 
-  
 
   return (
     <>
@@ -74,6 +79,7 @@ function App() {
       />
       <AddProduct
         showAddProduct={showAddProduct}
+        
         closeAddProduct={closeAddProduct}
       />
     </>

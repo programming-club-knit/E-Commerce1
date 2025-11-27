@@ -5,7 +5,7 @@ function CartItem({ id, name, image, quantity, onDecQuantity, onIncQuantity }) {
   return (
     <div key={id} className="cart-item">
       <div className="item-img">
-        <img src={require(`../../assets/${image}`)} alt={name} />
+        <img src={image} alt={name} />
       </div>
       <div className="item-info">
         <div>{name}</div>
@@ -46,7 +46,7 @@ function Cart({
         <p className="cart-heading">Cart</p>
         {
           cartItems.map((item)=>{ 
-            return <CartItem id={item.id} name={item.name} image={item.image} quantity={item.quantity} onIncQuantity={onIncQuantity} onDecQuantity={onDecQuantity}/>
+            return <CartItem id={item.id} name={item.title} image={item.image} quantity={item.quantity} onIncQuantity={onIncQuantity} onDecQuantity={onDecQuantity}/>
         })
         }
         <div className="cart-buttons">
