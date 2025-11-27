@@ -62,8 +62,7 @@ function App() {
   };
 
 
-  
-  console.log(cartItems)
+
   return (
     <>
       <Header
